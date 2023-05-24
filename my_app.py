@@ -8,8 +8,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import visdcc
 # Incorporate data
-app = Dash(__name__)
-server = app.server
+
+
 mychess_games_df = pd.read_csv('preprocessed_data.csv')
 mychess_games_df = mychess_games_df.sort_values(by='end_time', ascending=False)
 mychess_games_df = mychess_games_df.rename(columns={'oppenings':'openings'}).reset_index()
@@ -36,7 +36,7 @@ plot_list=['all', 'rapid-timeseries', 'blitz-timeseries','bullet-timeseries','wo
 # Initialize the app - incorporate a Dash Bootstrap theme
 external_stylesheets = [dbc.themes.CERULEAN]
 app = Dash(__name__, external_stylesheets=external_stylesheets)
-
+server = app.server
 # App layout
 app.layout = html.Div([
     visdcc.Run_js(id='javascript'), dbc.Container([ 
