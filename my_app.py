@@ -8,6 +8,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import visdcc
 # Incorporate data
+app = Dash(__name__)
+server = app.server
 mychess_games_df = pd.read_csv('preprocessed_data.csv')
 mychess_games_df = mychess_games_df.sort_values(by='end_time', ascending=False)
 mychess_games_df = mychess_games_df.rename(columns={'oppenings':'openings'}).reset_index()
