@@ -234,6 +234,6 @@ def update_graph(col_chosen):
 
 # Run the app
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+    app.run_server()
+#     http_server = WSGIServer(('', 5000), app)
+#     http_server.serve_forever()
